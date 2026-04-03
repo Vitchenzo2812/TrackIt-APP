@@ -1,5 +1,5 @@
  
-import { CSSProperties } from 'react';
+import { CSSProperties, ReactElement } from 'react';
 import { CircularProgress } from '@mui/material';
 import * as S from './styled';
 
@@ -11,12 +11,14 @@ interface Props {
   onClick: () => void;
   styles?: CSSProperties;
   isLoading?: boolean;
+  leftIcon?: ReactElement;
 }
 
 const Button = ({ 
   label, 
   variant, 
   onClick,
+  leftIcon,
   styles,
   isLoading = false
 }: Props) => {
@@ -28,6 +30,7 @@ const Button = ({
       style={styles}
       disabled={isLoading}
     >
+      {leftIcon}
       {isLoading ? <CircularProgress size={25} color='secondary' /> : label}
     </S.Container>
   );

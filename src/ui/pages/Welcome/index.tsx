@@ -2,6 +2,7 @@ import Button from '@/ui/atoms/Button';
 import * as S from './styled';
 import Card from '@/ui/atoms/Card';
 import { CheckCircle2, Clock, Target, TrendingUp } from 'lucide-react';
+import { useRouter } from 'next/router';
 
 const features = [
   { 
@@ -27,6 +28,10 @@ const features = [
 ];
 
 const WelcomePage = () => {
+  const router = useRouter();
+
+  const natigateToAuth = () => router.push('/sign-in');
+
   return (
     <S.Container>
       <S.Header>
@@ -35,7 +40,7 @@ const WelcomePage = () => {
         <Button 
           label='Entrar' 
           variant='outline'
-          onClick={() => {}} 
+          onClick={natigateToAuth} 
         />
       </S.Header>
 
@@ -51,7 +56,7 @@ const WelcomePage = () => {
           <Button 
             label='Começar Agora'
             variant='primary'
-            onClick={() => {}}
+            onClick={natigateToAuth}
             styles={{ 
               fontSize: '1.8rem',
               fontWeight: 500

@@ -26,5 +26,10 @@ body {
   }
   
   scroll-behavior: auto;
+  overscroll-behavior: none;
+}
+
+#__next {
+  height: 100%;
 }
 `;

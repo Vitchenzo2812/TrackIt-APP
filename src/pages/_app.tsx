@@ -49,9 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={new QueryClient()}>
       <GlobalStyles/>
-      <div style={{ position: 'relative' }}>
-        <Component {...pageProps} />
-      </div>
+      <Component {...pageProps} />
     </QueryClientProvider>
   );
 }

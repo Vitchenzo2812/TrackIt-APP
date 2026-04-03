@@ -17,16 +17,22 @@ export const Container = styled.button<{
     switch (props.variant) {
       case "ghost":
         return css`
-          background: transparent;
-          border: none;
-          color: #7A7A7A;
-          background-color: #F5F5F5;
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          background-color: transparent;
           cursor: pointer;
-          transition: color 0.3s ease;
+          color: #7A7A7A;
+          font-size: 1.6rem;
           font-weight: 500;
+          transition: all 0.2s ease-in-out;
 
           &:hover {
-            transform: scale(1.03);
+            color: #E76F51;
+
+            .lucide-move-left {
+              stroke: #E76F51;
+            }
           }
         `;
 
