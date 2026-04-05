@@ -3,7 +3,7 @@ import { TButtonVariant } from ".";
 
 export const Container = styled.button<{
   variant: TButtonVariant,
-  isSelected?: boolean,
+  selected?: boolean,
 }>`
   display: flex;
   align-items: center;
@@ -14,7 +14,7 @@ export const Container = styled.button<{
   font-size: 1.6rem;
   height: 6rem;
 
-  ${({ variant, isSelected }) => {
+  ${({ variant, selected }) => {
     switch (variant) {
       case "ghost":
         return css`
@@ -28,7 +28,7 @@ export const Container = styled.button<{
           font-weight: 500;
           transition: all 0.2s ease-in-out;
 
-          ${!isSelected && css`
+          ${!selected && css`
             &:hover {
               color: #E76F51;
   
@@ -38,7 +38,7 @@ export const Container = styled.button<{
             }
           `}
 
-          ${isSelected && css`
+          ${selected && css`
             background-color: #E76F51;
             color: white;
           `}
@@ -85,7 +85,7 @@ export const Container = styled.button<{
 
           &:hover {
             background-color: #d5634a;
-            transform: scale(1.05);
+            transform: scale(1.03);
           }
         `;
     }

@@ -1,9 +1,10 @@
 import Card from '@/ui/atoms/Card';
 import { MoveLeft } from 'lucide-react';
 import * as S from './styled';
-import InputWithLabel from '@/ui/atoms/Input';
+import InputWithLabel from '@/ui/molecules/Input';
 import Button from '@/ui/atoms/Button';
 import { useRouter } from 'next/router';
+import Typography from '@/ui/atoms/Typography';
 
 const SignInPage = () => {
   const router = useRouter();
@@ -12,8 +13,18 @@ const SignInPage = () => {
     <S.Container>
       <S.WrapperItems>
         <S.WrapperTexts>
-          <S.Title>Bem-vindo de Volta</S.Title>
-          <S.Subtitle>Entre para continuar sua jornada</S.Subtitle>
+          <Typography
+            as='h1'
+            size='3rem'
+            color='#2E2E2E'
+            weight={500}
+          >
+            Bem-vindo de Volta
+          </Typography>
+
+          <Typography color='#7A7A7A'>
+            Entre para continuar sua jornada
+          </Typography>
         </S.WrapperTexts>
 
         <Card>

@@ -3,6 +3,7 @@ import * as S from './styled';
 import Card from '@/ui/atoms/Card';
 import { CheckCircle2, Clock, Target, TrendingUp } from 'lucide-react';
 import { useRouter } from 'next/router';
+import Typography from '@/ui/atoms/Typography';
 
 const features = [
   { 
@@ -35,7 +36,14 @@ const WelcomePage = () => {
   return (
     <S.Container>
       <S.Header>
-        <S.BrandName>ITrackIt</S.BrandName>
+        <Typography 
+          as='span' 
+          size='2.4rem' 
+          color='#2E2E2E' 
+          weight={500}
+        >
+          ITrackIt
+        </Typography>
 
         <Button 
           label='Entrar' 
@@ -45,12 +53,25 @@ const WelcomePage = () => {
       </S.Header>
 
       <S.WrapperComponents>
-        <S.Title>Sua Vida, <S.OrangeTitle>Organizada</S.OrangeTitle></S.Title>
+        <Typography
+          as='h1' 
+          size={{ mobile: '5rem', desktop: '6rem' }}
+          color='#2E2E2E' 
+          weight={500}
+          styles={{ textAlign: 'center' }}
+        >
+          Sua Vida, <Typography as='span' size={{ mobile: '5rem', desktop: '6rem' }} weight={500} color='#E76F51'>Organizada</Typography>
+        </Typography>
 
-        <S.Subtitle>
+        <Typography
+          as='p'
+          color='#7A7A7A'
+          size={{ mobile: '1.8rem', desktop: '2rem' }}
+          styles={{ textAlign: 'center', lineHeight: 1.4 }}
+        >
           Um hub unificado de produtividade para gerenciar tarefas,<br/>
           construir hábitos e controlar suas finanças — tudo em um só lugar.
-        </S.Subtitle>
+        </Typography>
 
         <S.WrapperButtons>
           <Button 
@@ -78,28 +99,37 @@ const WelcomePage = () => {
           {features.map(feature => {
             const Icon = feature.icon;
             return (
-              <S.HoverCard key={feature.title}>
-                <Card
-                  styles={{
-                    width: '29rem',
-                    height: '22.1rem'
-                  }}
-                >
-                  <S.ContainerItemsInCard>
-                    <S.BackgroundIcon>
-                      <Icon width={26} height={26} color='#E76F51' />
-                    </S.BackgroundIcon>
-                    
-                    <S.CardTitle>
-                      {feature.title}
-                    </S.CardTitle>
+              <Card
+                hover
+                key={feature.title}
+                styles={{
+                  width: '29rem',
+                  height: '22.1rem'
+                }}
+              >
+                <S.ContainerItemsInCard>
+                  <S.BackgroundIcon>
+                    <Icon width={26} height={26} color='#E76F51' />
+                  </S.BackgroundIcon>
+                  
+                  <Typography
+                    as='h3'
+                    size='1.8rem'
+                    weight={500}
+                    color='#2E2E2E'
+                  >
+                    {feature.title}
+                  </Typography>
 
-                    <S.CardDescription>
-                      {feature.description}
-                    </S.CardDescription>
-                  </S.ContainerItemsInCard>
-                </Card>
-              </S.HoverCard>
+                  <Typography
+                    as='p'
+                    color='#7A7A7A'
+                    styles={{ whiteSpace: 'break-spaces', textAlign: 'center' }}
+                  >
+                    {feature.description}
+                  </Typography>
+                </S.ContainerItemsInCard>
+              </Card>
             )
           })}
         </S.WrapperCards>

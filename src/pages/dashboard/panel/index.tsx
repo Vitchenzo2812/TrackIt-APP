@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
-const Dashboard = dynamic(async () => import('@/ui/pages/Dashboard'), { ssr: false });
+const DashboardPanel = dynamic(async () => import('@/ui/pages/Dashboard/Panel'), { ssr: false });
 
-const DashboardPage = () => {
+const DashboardPanelPage = () => {
   return (
     <>
       <Head>
@@ -11,9 +11,9 @@ const DashboardPage = () => {
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Dashboard />
+      <DashboardPanel />
     </>
   );
 }
 
-export default DashboardPage;
+export default DashboardPanelPage;

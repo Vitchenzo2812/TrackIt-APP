@@ -3,13 +3,16 @@ import * as S from './styled';
 
 interface Props {
   styles?: CSSProperties;
+  hover?: boolean;
 }
 
-const Card = ({ children, styles }: PropsWithChildren<Props>) => {
+const Card = ({ children, styles, hover = false }: PropsWithChildren<Props>) => {
   return (
-    <S.Container style={styles}>
-      {children}
-    </S.Container>
+    <S.HoverCard hover={hover}>
+      <S.Container style={styles}>
+        {children}
+      </S.Container>
+    </S.HoverCard>
   );
 }
 

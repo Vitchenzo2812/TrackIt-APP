@@ -23,17 +23,6 @@ export const WrapperTexts = styled.div`
   gap: 0.8rem;
 `;
 
-export const Title = styled.h1`
-  font-size: 3rem;
-  color: #2E2E2E;
-  font-weight: 500;
-`;
-
-export const Subtitle = styled.p`
-  font-size: 1.6rem;
-  color: #7A7A7A;
-`;
-
 export const WrapperInputsCard = styled.div`
   display: flex;
   flex-direction: column;

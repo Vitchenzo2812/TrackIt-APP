@@ -1,4 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+export const HoverCard = styled.div<{ hover: boolean }>`
+  transition: transform 0.3s ease-in-out;
+
+  ${({ hover }) => hover && css`
+    &:hover {
+      transform: translateY(-1rem);
+    }
+  `}
+`;
 
 export const Container = styled.div`
   padding: 3.2rem;

@@ -1,9 +1,10 @@
-import InputWithLabel from '@/ui/atoms/Input';
+import InputWithLabel from '@/ui/molecules/Input';
 import Button from '@/ui/atoms/Button';
 import { MoveLeft } from 'lucide-react';
 import { useRouter } from 'next/router';
 import Card from '@/ui/atoms/Card';
 import * as S from './styled';
+import Typography from '@/ui/atoms/Typography';
 
 const SignUpPage = () => {
   const router = useRouter();
@@ -12,8 +13,18 @@ const SignUpPage = () => {
     <S.Container>
       <S.WrapperItems>
         <S.WrapperTexts>
-          <S.Title>Criar Conta</S.Title>
-          <S.Subtitle>Comece a organizar sua vida hoje</S.Subtitle>
+          <Typography
+            as='h1'
+            size='3rem'
+            color='#2E2E2E'
+            weight={500}
+          >
+            Criar Conta
+          </Typography>
+
+          <Typography color='#7A7A7A'>
+            Comece a organizar sua vida hoje
+          </Typography>
         </S.WrapperTexts>
 
         <Card>

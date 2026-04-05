@@ -30,7 +30,7 @@ const Button = ({
       variant={variant}
       onClick={onClick}
       style={styles}
-      isSelected={isSelected}
+      selected={isSelected}
       disabled={isLoading}
     >
       {leftIcon}

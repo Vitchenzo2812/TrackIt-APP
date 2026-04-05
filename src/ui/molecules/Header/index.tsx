@@ -2,6 +2,7 @@ import { FolderKanban, LayoutDashboard, SquareCheckBig, Timer, Wallet } from 'lu
 import { ReactElement, useState } from 'react';
 import Button from '@/ui/atoms/Button';
 import * as S from './styled';
+import Typography from '@/ui/atoms/Typography';
 
 export type TSectionOption = 'panel' | 'tasks' | 'groups' | 'finance' | 'pomodoro'
 
@@ -24,7 +25,14 @@ const Header = () => {
 
   return (
     <S.Container>
-      <S.BrandName>ITrackIt</S.BrandName>
+      <Typography 
+        as='span'
+        size='2.4rem' 
+        color='#2E2E2E' 
+        weight={500}
+      >
+        ITrackIt
+      </Typography>
 
       <S.WrapperButtons>
         {Sections.map(section => (

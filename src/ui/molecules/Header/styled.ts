@@ -2,22 +2,20 @@ import { LogOut, User } from "lucide-react";
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  width: 100%;
   height: 7.3rem;
   background-color: #ffffff;
   border-bottom: rgba(0, 0, 0, 0.08) 0.1rem solid;
 
   padding: 1.6rem 2.4rem;
-  margin: 0rem 1rem;
-`;
-
-export const BrandName = styled.span`
-  font-size: 2.4rem;
-  color: #2E2E2E;
-  font-weight: 500;
 `;
 
 export const WrapperButtons = styled.div`
