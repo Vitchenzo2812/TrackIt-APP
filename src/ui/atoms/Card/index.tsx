@@ -1,19 +1,26 @@
-import { CSSProperties, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import * as S from './styled';
+import { ResponsiveStyles } from './types';
+import { CSSProperties } from 'styled-components';
 
 interface Props {
-  styles?: CSSProperties;
+  responsiveStyles?: ResponsiveStyles;
+  styles?: CSSProperties
   hover?: boolean;
+  className?: string[];
 }
 
-const Card = ({ children, styles, hover = false }: PropsWithChildren<Props>) => {
+const Card = ({ children, responsiveStyles, styles, className = [], hover = false }: PropsWithChildren<Props>) => {
   return (
-    <S.HoverCard hover={hover}>
-      <S.Container style={styles}>
+      <S.Container 
+        className={className.join(' ')} 
+        style={styles} 
+        responsiveStyles={responsiveStyles}
+        hover={hover}
+      >
         {children}
       </S.Container>
-    </S.HoverCard>
   );
-}
+};
 
 export default Card;

@@ -44,6 +44,33 @@ export const Container = styled.button<{
           `}
         `;
 
+      case "ghost-without-select":
+        return css`
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          background-color: transparent;
+          cursor: pointer;
+          color: #7A7A7A;
+          font-size: 1.6rem;
+          font-weight: 500;
+          transition: all 0.2s ease-in-out;
+
+          ${!selected && css`
+            &:hover {
+              color: #E76F51;
+  
+              .lucide-move-left {
+                stroke: #E76F51;
+              }
+            }
+          `}
+
+          ${selected && css`
+            color: #E76F51;
+          `}
+        `;
+
       case "outline":
         return css`
           background-color: transparent;

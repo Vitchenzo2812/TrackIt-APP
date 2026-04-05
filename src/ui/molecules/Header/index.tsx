@@ -20,7 +20,11 @@ const Sections: TSection[] = [
   { option: 'pomodoro', label: 'Pomodoro', icon: <Timer width={20} height={20} /> },
 ]
 
-const Header = () => {
+interface Props {
+  isMobile: boolean
+}
+
+const Header = ({ isMobile }: Props) => {
   const [option, setOption] = useState<TSectionOption>('panel');
 
   return (
@@ -34,19 +38,21 @@ const Header = () => {
         ITrackIt
       </Typography>
 
-      <S.WrapperButtons>
-        {Sections.map(section => (
-          <Button
-            variant='ghost'
-            key={section.option}
-            label={section.label}
-            leftIcon={section.icon}
-            isSelected={section.option === option}
-            onClick={() => { setOption(section.option) }}
-            styles={{ height: '4rem', padding: '0.8rem 1.6rem' }}
-          />
-        ))}
-      </S.WrapperButtons>
+      {!isMobile && (
+        <S.WrapperButtons>
+          {Sections.map(section => (
+            <Button
+              variant='ghost'
+              key={section.option}
+              label={section.label}
+              leftIcon={section.icon}
+              isSelected={section.option === option}
+              onClick={() => { setOption(section.option) }}
+              styles={{ height: '4rem', padding: '0.8rem 1.6rem' }}
+            />
+          ))}
+        </S.WrapperButtons>
+      )}
 
       <S.WrapperIcons>
         <S.UserIcon />

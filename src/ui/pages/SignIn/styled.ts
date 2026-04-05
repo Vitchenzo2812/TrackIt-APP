@@ -27,19 +27,6 @@ export const WrapperInputsCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  width: 33rem;
-
-  @media (min-width: 550px) {
-    width: 44.8rem;
-  }
-
-  @media (max-width: 410px) {
-    width: 30rem;
-  }
-
-  @media (max-width: 380px) {
-    width: 20rem;
-  } 
 `;
 
 export const WrapperButtonsCard = styled.div`

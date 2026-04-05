@@ -27,7 +27,11 @@ const SignInPage = () => {
           </Typography>
         </S.WrapperTexts>
 
-        <Card>
+        <Card 
+          responsiveStyles={{ 
+            width: { mobile: '33rem', desktop: '44.8rem' },
+            padding: '3.2rem' 
+          }}>
           <S.WrapperInputsCard>
             <InputWithLabel
               label='E-mail'

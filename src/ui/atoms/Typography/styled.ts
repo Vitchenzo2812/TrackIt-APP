@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { TextProps } from './types';
-import { resolveResponsive } from './utils';
+import { resolveResponsive } from '@/utils/responsive.utils';
 
 export const Text = styled.p<TextProps>`
   margin: 0;

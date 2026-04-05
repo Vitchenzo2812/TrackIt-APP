@@ -102,9 +102,10 @@ const WelcomePage = () => {
               <Card
                 hover
                 key={feature.title}
-                styles={{
+                responsiveStyles={{
                   width: '29rem',
-                  height: '22.1rem'
+                  height: '22.1rem',
+                  padding: '3.2rem'
                 }}
               >
                 <S.ContainerItemsInCard>

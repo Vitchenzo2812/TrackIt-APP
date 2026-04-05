@@ -1,18 +1,24 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  height: 100dvh;
+  min-height: 100dvh;
   background-color: #fafafa;
-  display: flex;
-  justify-content: center;
 `;
 
 export const WrapperPage = styled.div`
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+`;
+
+export const WrapperAllItems = styled.div`
+  width: 100%;
+  max-width: 121.4rem;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
   padding: 10.5rem 2.4rem;
-  
 `;
 
 export const WrapperTitleButtons = styled.div`
@@ -21,15 +27,27 @@ export const WrapperTitleButtons = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 3.2rem;
+
+  @media (max-width: 770px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+  }
 `;
 
 export const WrapperTitleTasks = styled(WrapperTitleButtons)`
   margin-bottom: 1.6rem;
-`
+`;
 
 export const WrapperButtons = styled.div`
   display: flex;
   gap: 1rem;
+
+  @media (max-width: 770px) {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 `;
 
 export const WrapperTitleSubtitle = styled.div`
@@ -39,15 +57,35 @@ export const WrapperTitleSubtitle = styled.div`
 `;
 
 export const WrapperCards = styled.div`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 1.6rem;
   padding-bottom: 3.2rem;
-  flex-wrap: wrap;
-  max-width: 121.4rem;
+  width: 100%;
 
   .padding-bottom {
     padding-bottom: 1.6rem;
+  }
+
+  .responsive-panel-card {
+    max-width: 39.4rem;
+    width: 100%;
+    justify-self: center;
+  }
+
+  .responsive-panel-tasks-card {
+    max-width: 39.4rem;
+    width: 100%;
+    justify-self: center;
+  }
+
+  @media (max-width: 770px) {
+    grid-template-columns: 1fr;
+
+    .responsive-panel-card,
+    .responsive-panel-tasks-card {
+      max-width: 100%;
+    }
   }
 `;
 

@@ -1,4 +1,18 @@
-import { breakpoints, Responsive } from './types';
+export type Responsive<T> =
+  | T
+  | {
+    mobile?: T;
+    tablet?: T;
+    desktop?: T;
+  };
+
+export const breakpoints = {
+  desktop: 1024,
+  tablet: 768,
+  mobile: 480,
+};
+
+export type BreakpointKeys = keyof typeof breakpoints;
 
 type CSSValue = string | number;
 
@@ -21,13 +35,13 @@ const formatValue = (property: string, value: CSSValue) => {
 
 const createMediaQuery = (breakpoint: number, styles: string) => {
   return `
-    @media (min-width: ${breakpoint}px) {
+    @media (max-width: ${breakpoint}px) {
       ${styles}
     }
   `;
 };
 
-export const resolveResponsive = <T extends CSSValue>(
+export const resolveResponsive = <T extends string | number>(
   property: string,
   value: Responsive<T>
 ): string => {
@@ -37,11 +51,8 @@ export const resolveResponsive = <T extends CSSValue>(
 
   let styles = '';
 
-  if (!!value?.mobile) {
-    styles += createMediaQuery(
-      breakpoints.mobile,
-      `${property}: ${formatValue(property, value.mobile)};`
-    );
+  if (!!value?.desktop) {
+    styles += `${property}: ${formatValue(property, value.desktop)};`;
   }
 
   if (!!value?.tablet) {
@@ -51,10 +62,10 @@ export const resolveResponsive = <T extends CSSValue>(
     );
   }
 
-  if (!!value?.desktop) {
+  if (!!value?.mobile) {
     styles += createMediaQuery(
-      breakpoints.desktop,
-      `${property}: ${formatValue(property, value.desktop)};`
+      breakpoints.mobile,
+      `${property}: ${formatValue(property, value.mobile)};`
     );
   }
 

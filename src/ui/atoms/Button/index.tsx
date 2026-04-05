@@ -3,7 +3,7 @@ import { CSSProperties, ReactElement } from 'react';
 import { CircularProgress } from '@mui/material';
 import * as S from './styled';
 
-export type TButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline';
+export type TButtonVariant = 'primary' | 'secondary' | 'ghost' | 'ghost-without-select' | 'outline';
 
 interface Props {
   label: string;
