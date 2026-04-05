@@ -9,9 +9,10 @@ interface Props {
   label: string;
   variant: TButtonVariant;
   onClick: () => void;
-  styles?: CSSProperties;
-  isLoading?: boolean;
   leftIcon?: ReactElement;
+  styles?: CSSProperties;
+  isSelected?: boolean;
+  isLoading?: boolean;
 }
 
 const Button = ({ 
@@ -20,6 +21,7 @@ const Button = ({
   onClick,
   leftIcon,
   styles,
+  isSelected = false,
   isLoading = false
 }: Props) => {
   return (
@@ -28,6 +30,7 @@ const Button = ({
       variant={variant}
       onClick={onClick}
       style={styles}
+      isSelected={isSelected}
       disabled={isLoading}
     >
       {leftIcon}

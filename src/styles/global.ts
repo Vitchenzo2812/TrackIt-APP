@@ -15,18 +15,19 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 html {
+  height: 100%;
   font-size: 62.5%;
 }
 
 body {
   overflow-x: hidden;
+  scroll-behavior: auto;
+  overscroll-behavior: none;
+  background-color: #fff7f5;
 
   ::-webkit-scrollbar {
     display: none;
   }
-  
-  scroll-behavior: auto;
-  overscroll-behavior: none;
 }
 
 #__next {
