@@ -1,14 +1,22 @@
  
-import { CSSProperties, ReactElement } from 'react';
+import React, { CSSProperties, ReactElement } from 'react';
 import { CircularProgress } from '@mui/material';
 import * as S from './styled';
 
-export type TButtonVariant = 'primary' | 'secondary' | 'ghost' | 'ghost-without-select' | 'outline';
+export type TButtonVariant = 'primary' 
+  | 'secondary' 
+  | 'ghost' 
+  | 'ghost-without-select' 
+  | 'outline-red'
+  | 'outline-orange'
+  | 'gray-red'
+  | 'gray-orange';
 
 interface Props {
-  label: string;
   variant: TButtonVariant;
-  onClick: () => void;
+  onClick: (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  label?: string;
+  numberInChip?: number;
   leftIcon?: ReactElement;
   styles?: CSSProperties;
   isSelected?: boolean;
@@ -16,11 +24,12 @@ interface Props {
 }
 
 const Button = ({ 
-  label, 
+  label = '', 
   variant, 
   onClick,
   leftIcon,
   styles,
+  numberInChip,
   isSelected = false,
   isLoading = false
 }: Props) => {
@@ -35,6 +44,11 @@ const Button = ({
     >
       {leftIcon}
       {isLoading ? <CircularProgress size={25} color='secondary' /> : label}
+      {numberInChip && (
+        <S.Chip className='chip'>
+          {numberInChip}
+        </S.Chip>
+      )}
     </S.Container>
   );
 }

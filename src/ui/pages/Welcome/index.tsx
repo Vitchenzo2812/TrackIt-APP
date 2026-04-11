@@ -47,7 +47,7 @@ const WelcomePage = () => {
 
         <Button 
           label='Entrar' 
-          variant='outline'
+          variant='outline-red'
           onClick={natigateToAuth} 
         />
       </S.Header>
@@ -86,7 +86,7 @@ const WelcomePage = () => {
 
           <Button 
             label='Saiba Mais'
-            variant='outline'
+            variant='outline-red'
             onClick={() => {}}
             styles={{ 
               fontSize: '1.8rem',

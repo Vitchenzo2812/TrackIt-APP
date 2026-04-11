@@ -21,13 +21,34 @@ html {
 
 body {
   overflow-x: hidden;
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
   overscroll-behavior: none;
   background-color: #fff7f5;
+}
 
-  ::-webkit-scrollbar {
-    display: none;
-  }
+/* Scrollbar - Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
 #__next {

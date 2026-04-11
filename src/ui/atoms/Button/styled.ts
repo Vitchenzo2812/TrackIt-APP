@@ -8,6 +8,7 @@ export const Container = styled.button<{
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.8rem;
   padding: 1.4rem 2.8rem;
   cursor: pointer;
   border-radius: 1.2rem;
@@ -60,7 +61,9 @@ export const Container = styled.button<{
             &:hover {
               color: #E76F51;
   
-              .lucide-move-left {
+              .lucide-move-left, 
+              .lucide-chevron-right, 
+              .lucide-chevron-down {
                 stroke: #E76F51;
               }
             }
@@ -71,11 +74,69 @@ export const Container = styled.button<{
           `}
         `;
 
-      case "outline":
+      case "gray-red":
+        return css`
+          background-color: #EEEEEE;
+          color: #7A7A7A;
+          transition: 
+            background-color 0.3s ease,
+            color 0.3s ease,
+            transform 0.2s ease;
+
+          &:hover {
+            transform: scale(1.03);
+          }
+
+          ${selected && css`
+            background-color: #E76F51;
+            color: white;
+          `}
+        `;
+
+      case "gray-orange":
+        return css`
+          background-color: #EEEEEE;
+          color: #7A7A7A;
+          transition: 
+            background-color 0.3s ease,
+            color 0.3s ease,
+            transform 0.2s ease;
+
+          &:hover {
+            transform: scale(1.03);
+          }
+
+          ${selected && css`
+            background-color: #F4A261;
+            color: white;
+
+            .chip {
+              background-color: #fcbe8b;
+              color: #ffffff;
+            }
+          `}
+        `;
+
+      case "outline-red":
         return css`
           background-color: transparent;
           color: #E76F51;
           border: #E76F51 0.2rem solid;
+          transition: 
+            background-color 0.3s ease,
+            color 0.3s ease,
+            transform 0.2s ease;
+
+          &:hover {
+            transform: scale(1.03);
+          }
+        `;
+
+      case "outline-orange":
+        return css`
+          background-color: transparent;
+          color: #F4A261;
+          border: #F4A261 0.2rem solid;
           transition: 
             background-color 0.3s ease,
             color 0.3s ease,
@@ -117,4 +178,15 @@ export const Container = styled.button<{
         `;
     }
   }}
+`;
+
+export const Chip = styled.div`
+  background-color: #E0E0E0;
+  color: #7A7A7A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  font-size: 1.2rem;
+  border-radius: 0.4rem;
 `;

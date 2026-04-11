@@ -1,24 +1,12 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.div`
-  min-height: 100dvh;
-  background-color: #fafafa;
-`;
-
-export const WrapperPage = styled.div`
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
 export const WrapperAllItems = styled.div`
   width: 100%;
   max-width: 121.4rem;
-  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
-  padding: 10.5rem 2.4rem;
+  margin: 0 auto;
 `;
 
 export const WrapperTitleButtons = styled.div`
