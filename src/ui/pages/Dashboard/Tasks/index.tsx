@@ -35,7 +35,8 @@ const TasksPage = () => {
   const [filterStatus, setFilterStatus] = useState<TTaskStatus>('all');
   const [filterGroup, setFilterGroup] = useState<TTaskGroupMock>('all');
 
-  const { ref, events, hasDragged } = useDragScroll<HTMLDivElement>();
+  const { ref: filtersRef, events: filtersEvents, hasDragged: filtersHasDragged } = useDragScroll<HTMLDivElement>();
+  const { ref: groupsRef, events: groupsEvents, hasDragged: groupsHasDragged } = useDragScroll<HTMLDivElement>();
 
   return (
     <DashboardLayout>
@@ -75,32 +76,44 @@ const TasksPage = () => {
 
         <S.WrapperFilterCards>
           <Card>
-            <S.WrapperFilterStatus>
+            <S.WrapperFilters>
               <Funnel width={20} height={20} color='#7A7A7A' />
+              
+              <S.WrapperFilterStatus
+                ref={filtersRef}
+                {...filtersEvents}
+              >
+                {FilterStatus.map(filter => (
+                  <Button
+                    key={filter.status}
+                    label={filter.label}
+                    isSelected={filterStatus === filter.status}
+                    variant='gray-red'
+                    onClick={(e) => {
+                      if (filtersHasDragged) {
+                          e.preventDefault();
+                          return;
+                        }
 
-              {FilterStatus.map(filter => (
-                <Button
-                  key={filter.status}
-                  label={filter.label}
-                  isSelected={filterStatus === filter.status}
-                  variant='gray-red'
-                  onClick={() => { setFilterStatus(filter.status) }}
-                  styles={{
-                    height: '4rem',
-                    padding: '0.8rem 1.6rem'
-                  }}
-                />
-              ))}
-            </S.WrapperFilterStatus>
+                      setFilterStatus(filter.status) 
+                    }}
+                    styles={{
+                      height: '4rem',
+                      padding: '0.8rem 1.6rem'
+                    }}
+                  />
+                ))}
+              </S.WrapperFilterStatus>
+            </S.WrapperFilters>
           </Card>
 
           <Card>
-            <S.WrapperFilterStatus>
+            <S.WrapperFilters>
               <FolderKanban width={20} height={20} color='#7A7A7A' />
 
               <S.WrapperFilterGroups
-                ref={ref}
-                {...events}
+                ref={groupsRef}
+                {...groupsEvents}
               >
                 {GroupsMock.map(filter => (
                   <Button
@@ -110,7 +123,7 @@ const TasksPage = () => {
                     isSelected={filterGroup === filter.status}
                     variant='gray-orange'
                     onClick={(e) => { 
-                      if (hasDragged) {
+                      if (groupsHasDragged) {
                         e.preventDefault();
                         return;
                       }
@@ -136,7 +149,7 @@ const TasksPage = () => {
                   padding: '0.8rem 1.2rem'
                 }}
               />
-            </S.WrapperFilterStatus>
+            </S.WrapperFilters>
           </Card>
         </S.WrapperFilterCards>
 

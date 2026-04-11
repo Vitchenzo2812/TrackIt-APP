@@ -17,7 +17,7 @@ const SubTasks = () => {
           : <ChevronDown width={16} height={16} color='#7A7A7A' />
         }
         styles={{ 
-          width: '15rem', 
+          width: '13rem', 
           height: '2rem',
           fontSize: '1.4rem',
           padding: '0rem'

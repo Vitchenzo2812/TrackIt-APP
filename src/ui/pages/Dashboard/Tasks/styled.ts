@@ -25,13 +25,41 @@ export const WrapperFilterCards = styled.div`
   display: flex;
   align-items: center;
   gap: 1.6rem;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+  }
 `;
 
-export const WrapperFilterStatus = styled.div`
+export const WrapperFilters = styled.div`
   display: flex;
   align-items: center;
   padding: 2.4rem;
   gap: 0.8rem;
+`;
+
+export const WrapperFilterStatus = styled.div`
+  display: flex;
+  gap: 0.8rem;
+  width: 35rem;
+  align-items: center;
+
+  overflow: hidden;
+
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  user-select: none;
+
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+
+  @media (max-width: 950px) {
+    width: 100%;
+  }
 `;
 
 export const WrapperFilterGroups = styled.div`
@@ -40,6 +68,7 @@ export const WrapperFilterGroups = styled.div`
   width: 31.2rem;
 
   overflow: hidden;
+
   cursor: grab;
 
   &:active {
@@ -47,6 +76,13 @@ export const WrapperFilterGroups = styled.div`
   }
 
   user-select: none;
+
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+
+  @media (max-width: 950px) {
+    width: 100%;
+  }
 `;
 
 export const WrapperTasks = styled.div`

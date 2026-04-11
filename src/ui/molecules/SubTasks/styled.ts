@@ -31,8 +31,8 @@ export const collapse = keyframes`
 export const WrapperSubTasks = styled.div<{ $isOpen: boolean }>`
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  margin-left: 2rem;
+  gap: 1.8rem;
+  margin-left: 0.6rem;
   padding-left: 0.8rem;
   border-left: #F5F5F5 0.2rem solid;
 

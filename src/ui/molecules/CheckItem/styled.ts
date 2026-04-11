@@ -17,6 +17,7 @@ export const Container = styled.div<{
 `;
 
 export const WrapperTexts = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -27,6 +28,12 @@ export const WrapperTitleStatus = styled.div`
   align-items: center;
   gap: 1.2rem;
 `
+
+export const WrapperChipAndDelete = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+`;
 
 export const DeleteIcon = styled(Trash2Icon)`
   width: 2.4rem;

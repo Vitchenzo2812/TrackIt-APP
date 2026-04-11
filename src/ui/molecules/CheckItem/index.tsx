@@ -64,13 +64,15 @@ const CheckItem = ({
             {label}
           </Typography>
 
-          {!!status && !check && <ChipStatus status={status} />}
-          {!!onDelete && !check && (
-            <S.DeleteIcon onClick={(e) => {
-              e.stopPropagation();
-              onDelete()
-            }} />
-          )}
+          <S.WrapperChipAndDelete>
+            {!!status && !check && <ChipStatus status={status} />}
+            {!!onDelete && !check && (
+              <S.DeleteIcon onClick={(e) => {
+                e.stopPropagation();
+                onDelete()
+              }} />
+            )}
+          </S.WrapperChipAndDelete>
         </S.WrapperTitleStatus>
 
         {!!description && (

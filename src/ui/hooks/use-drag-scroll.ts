@@ -1,50 +1,57 @@
-import { useRef, useState, MouseEvent } from "react";
+import { useRef, useState } from 'react';
 
 const useDragScroll = <T extends HTMLElement>() => {
-  const ref = useRef<T | null>(null);
+  const ref = useRef<T>(null);
 
-  const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [hasDragged, setHasDragged] = useState<boolean>(false);
-  const [startX, setStartX] = useState<number>(0);
-  const [scrollLeft, setScrollLeft] = useState<number>(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [hasDragged, setHasDragged] = useState(false);
 
-  const onMouseDown = (e: MouseEvent) => {
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  const onStart = (clientX: number) => {
     if (!ref.current) return;
 
     setIsDragging(true);
-    setStartX(e.pageX - ref.current.offsetLeft);
-    setScrollLeft(ref.current.scrollLeft);
-  }
+    setHasDragged(false);
 
-  const onMouseLeave = () => setIsDragging(false);
-  const onMouseUp = () => {
-    setIsDragging(false)
-    setTimeout(() => setHasDragged(false), 0);
+    startX.current = clientX - ref.current.offsetLeft;
+    scrollLeft.current = ref.current.scrollLeft;
   };
 
-  const onMouseMove = (e: MouseEvent) => {
+  const onMove = (clientX: number) => {
     if (!isDragging || !ref.current) return;
 
-    e.preventDefault();
-    setHasDragged(true);
+    const x = clientX - ref.current.offsetLeft;
+    const walk = x - startX.current;
 
-    const x = e.pageX - ref.current.offsetLeft;
-    const walk = (x - startX) * 1.5;
+    if (Math.abs(walk) > 5) {
+      setHasDragged(true);
+    }
 
-    ref.current.scrollLeft = scrollLeft - walk;
-  }
+    ref.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const onEnd = () => {
+    setIsDragging(false);
+  };
 
   return {
     ref,
-    isDragging,
     hasDragged,
     events: {
-      onMouseDown,
-      onMouseLeave,
-      onMouseUp,
-      onMouseMove,
-    }
-  }
-}
+      // 🖱️ Mouse
+      onMouseDown: (e: React.MouseEvent) => onStart(e.pageX),
+      onMouseMove: (e: React.MouseEvent) => onMove(e.pageX),
+      onMouseUp: onEnd,
+      onMouseLeave: onEnd,
+
+      // 📱 Touch (mobile)
+      onTouchStart: (e: React.TouchEvent) => onStart(e.touches[0].pageX),
+      onTouchMove: (e: React.TouchEvent) => onMove(e.touches[0].pageX),
+      onTouchEnd: onEnd,
+    },
+  };
+};
 
 export default useDragScroll;

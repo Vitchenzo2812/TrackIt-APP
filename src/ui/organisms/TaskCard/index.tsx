@@ -15,7 +15,6 @@ const TaskCard = () => {
             label='Revisar proposta de projeto'
             description='Ler a proposta de projeto do Q1 e dar feedback'
           />
-
           <S.WrapperChipAndDelete>
             <ChipStatus status='high' />
             <S.DeleteIcon />
