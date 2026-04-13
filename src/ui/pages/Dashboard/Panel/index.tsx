@@ -8,7 +8,7 @@ import Card from '@/ui/atoms/Card';
 import * as S from './styled';
 import { useRouter } from 'next/router';
 
-const DashboardPage = () => {
+const PanelPage = () => {
   const router = useRouter();
   
   return (
@@ -288,4 +288,4 @@ const DashboardPage = () => {
   );
 }
 
-export default DashboardPage;
+export default PanelPage;

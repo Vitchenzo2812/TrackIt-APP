@@ -10,6 +10,7 @@ export const BarContainer = styled.div`
   background: #f5f5f5;
   border-radius: 999px;
   overflow: hidden;
+  margin-bottom: 0.4rem;
 `;
 
 export const Bar = styled(motion.div)<{ $color?: string }>`
@@ -19,9 +20,9 @@ export const Bar = styled(motion.div)<{ $color?: string }>`
     $color || "linear-gradient(to right, #E76F51, #F4A261)"};
 `;
 
-export const Label = styled.p`
-  margin-top: 0.4rem;
-  font-size: 1.4rem;
-  color: #7a7a7a;
-  text-align: right;
+export const WrapperTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.8rem;
 `;
