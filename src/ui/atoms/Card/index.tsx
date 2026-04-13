@@ -15,8 +15,8 @@ const Card = ({ children, responsiveStyles, styles, className = [], hover = fals
       <S.Container 
         className={className.join(' ')} 
         style={styles} 
-        responsiveStyles={responsiveStyles}
-        hover={hover}
+        $responsiveStyles={responsiveStyles}
+        $hover={hover}
       >
         {children}
       </S.Container>
