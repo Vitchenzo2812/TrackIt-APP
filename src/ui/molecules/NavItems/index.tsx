@@ -17,6 +17,7 @@ const NavItems = () => {
           label={section.label}
           leftIcon={section.icon}
           isSelected={section.option === option}
+          disabled={section.disabled}
           onClick={() => { 
             setOption(section.option);
             router.push(section.option);

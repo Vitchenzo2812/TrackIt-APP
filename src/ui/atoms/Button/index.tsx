@@ -21,6 +21,7 @@ interface Props {
   styles?: CSSProperties;
   isSelected?: boolean;
   isLoading?: boolean;
+  disabled?: boolean;
 }
 
 const Button = ({ 
@@ -31,7 +32,8 @@ const Button = ({
   styles,
   numberInChip,
   isSelected = false,
-  isLoading = false
+  isLoading = false,
+  disabled = false,
 }: Props) => {
   return (
     <S.Container
@@ -40,7 +42,7 @@ const Button = ({
       onClick={onClick}
       style={styles}
       selected={isSelected}
-      disabled={isLoading}
+      disabled={isLoading || disabled}
     >
       {leftIcon}
       {isLoading ? <CircularProgress size={25} color='secondary' /> : label}

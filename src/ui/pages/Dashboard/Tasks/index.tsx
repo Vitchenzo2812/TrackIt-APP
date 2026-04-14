@@ -7,6 +7,7 @@ import Card from '@/ui/atoms/Card';
 import { useState } from 'react';
 import TaskCard from '@/ui/organisms/TaskCard';
 import useDragScroll from '@/ui/hooks/use-drag-scroll';
+import { useRouter } from 'next/router';
 
 type TTaskStatus = 'all' | 'pending' | 'completed';
 type TTaskGroupMock = 'all' | 'work' | 'personal' | 'health' | 'apprenticeship';
@@ -32,6 +33,7 @@ const GroupsMock: TFilterStatus<TTaskGroupMock>[] = [
 ];
 
 const TasksPage = () => {
+  const router = useRouter();
   const [filterStatus, setFilterStatus] = useState<TTaskStatus>('all');
   const [filterGroup, setFilterGroup] = useState<TTaskGroupMock>('all');
 
@@ -142,7 +144,7 @@ const TasksPage = () => {
 
               <Button
                 variant='outline-orange'
-                onClick={() => {}}
+                onClick={() => { router.push('groups') }}
                 leftIcon={<Plus width={16} height={16} color='#F4A261' />}
                 styles={{
                   height: '4rem',

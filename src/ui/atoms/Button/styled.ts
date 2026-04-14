@@ -3,7 +3,7 @@ import { TButtonVariant } from ".";
 
 export const Container = styled.button<{
   variant: TButtonVariant,
-  selected?: boolean,
+  selected?: boolean
 }>`
   display: flex;
   align-items: center;
@@ -43,6 +43,12 @@ export const Container = styled.button<{
             background-color: #E76F51;
             color: white;
           `}
+
+          &:disabled {
+            background-color: #d0cfcf;
+            color: #7A7A7A;
+            cursor: default;
+          }
         `;
 
       case "ghost-without-select":
@@ -72,6 +78,12 @@ export const Container = styled.button<{
           ${selected && css`
             color: #E76F51;
           `}
+
+          &:disabled {
+            background-color: #d0cfcf;
+            color: #7A7A7A;
+            cursor: default;
+          }
         `;
 
       case "gray-red":
