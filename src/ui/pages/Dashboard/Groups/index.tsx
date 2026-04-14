@@ -1,4 +1,5 @@
 import DashboardLayout from '@/ui/templates/DashboardLayout';
+import useIsMobile from '@/ui/hooks/use-is-mobile';
 import GroupCard from '@/ui/molecules/GroupCard';
 import Typography from '@/ui/atoms/Typography';
 import Button from '@/ui/atoms/Button';
@@ -6,6 +7,7 @@ import { Plus } from 'lucide-react';
 import * as S from './styled';
 
 const GroupsPage = () => {
+  const isMobile = useIsMobile('(max-width: 395px)');
   const items = Array.from({ length: 4 })
 
   return (
@@ -36,15 +38,16 @@ const GroupsPage = () => {
             leftIcon={<Plus width={16} height={16} color='#FFFFFF' />}
             onClick={() => {}}
             styles={{
+              width: '17rem',
               height: '4.4rem',
-              padding: '1rem 2rem',
+              padding: isMobile ? '1rem' : '1rem 2rem',
               gap: '0.4rem'
             }}
           />
         </S.WrapperHeaderGroups>
         
         <S.WrapperGroups>
-          {items.map((_, index) => <GroupCard key={index} />)}
+          {items.map((_, index) => <GroupCard color='#E76F51' key={index} />)}
         </S.WrapperGroups>
       </S.WrapperAllItems>
     </DashboardLayout>

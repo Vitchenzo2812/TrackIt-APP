@@ -8,14 +8,23 @@ export const HeaderCard = styled.div`
   margin: 0.8rem 0rem 1.6rem 0rem;
 `;
 
-export const BackgroundGroupIcon = styled.div`
+export const BackgroundGroupIcon = styled.div<{ $color: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: rgba(231, 111, 81, 0.082);
   border-radius: 1.6rem;
   padding: 1.4rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: ${({ $color }) => $color};
+    opacity: 0.082;
+  }
 `;
 
 export const WrapperIcons = styled.div`
@@ -26,8 +35,8 @@ export const WrapperIcons = styled.div`
 `;
 
 export const EditIcon = styled(PenIcon)`
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.4rem;
+  height: 2.4rem;
   padding: 0.3rem;
   color: #7a7a7a;
   cursor: pointer;
@@ -38,11 +47,16 @@ export const EditIcon = styled(PenIcon)`
     transform: scale(1.1);
     background-color: #f5f5f5;
   }
+
+  @media (max-width: 430px) {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
 `;
 
 export const DeleteIcon = styled(Trash2Icon)`
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.4rem;
+  height: 2.4rem;
   padding: 0.3rem;
   color: #7a7a7a;
   cursor: pointer;
@@ -52,6 +66,11 @@ export const DeleteIcon = styled(Trash2Icon)`
   &:hover {
     transform: scale(1.1);
     background-color: #f5f5f5;
+  }
+
+  @media (max-width: 430px) {
+    width: 2.8rem;
+    height: 2.8rem;
   }
 `;
 

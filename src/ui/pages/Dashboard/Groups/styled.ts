@@ -32,4 +32,8 @@ export const WrapperGroups = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 3.6rem;
+
+  @media (max-width: 1223px) {
+    justify-content: center;
+  }
 `;

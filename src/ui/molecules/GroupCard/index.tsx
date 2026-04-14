@@ -4,12 +4,16 @@ import { FolderKanban } from 'lucide-react';
 import Card from '@/ui/atoms/Card';
 import * as S from './styled';
 
-const GroupCard = () => {
+interface Props {
+  color: string
+}
+
+const GroupCard = ({ color }: Props) => {
   return (
     <Card hover className={['group']}>
       <S.HeaderCard>
-        <S.BackgroundGroupIcon>
-          <FolderKanban width={24} height={24} color='rgb(231, 111, 81)' />
+        <S.BackgroundGroupIcon $color={color}>
+          <FolderKanban width={24} height={24} color={color} />
         </S.BackgroundGroupIcon>
 
         <S.WrapperIcons>
