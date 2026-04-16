@@ -8,7 +8,8 @@ export const Container = styled.div<{ $chipStatus: TChipStatus }>`
   border-radius: 1.2rem;
   font-size: 1.2rem;
   color: #ffffff;
-   width: fit-content;
+  width: fit-content;
+  height: fit-content;
 
   ${({ $chipStatus }) => {
     switch ($chipStatus) {
@@ -26,6 +27,12 @@ export const Container = styled.div<{ $chipStatus: TChipStatus }>`
       case 'high':
         return css`
           background-color: #e76f51;
+        `;
+
+      case 'orange':
+        return css`
+          color: #E76F51;
+          background-color: color-mix(in oklab, #E76F51 10%, transparent);
         `;
 
       default:

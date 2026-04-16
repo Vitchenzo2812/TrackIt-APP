@@ -23,7 +23,7 @@ const TaskCard = () => {
         
         <S.ContentCard>
           <ChipStatus
-            status='custom'
+            status='gray'
             label='Trabalho'
           />
 

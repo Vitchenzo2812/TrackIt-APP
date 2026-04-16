@@ -1,6 +1,11 @@
 import * as S from './styled';
 
-export type TChipStatus = 'low' | 'medium' | 'high' | 'custom';
+export type TChipStatus = 
+  'low' 
+  | 'medium' 
+  | 'high' 
+  | 'orange'
+  | 'gray';
 
 interface Props {
   status: TChipStatus;
@@ -11,7 +16,8 @@ const labelStatus: Record<TChipStatus, string> = {
   low: 'Baixa',
   medium: 'Média',
   high: 'Alta',
-  custom: ''
+  gray: '',
+  orange: ''
 }
 
 const ChipStatus = ({ status, label }: Props) => {

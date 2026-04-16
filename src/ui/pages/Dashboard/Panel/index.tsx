@@ -46,7 +46,7 @@ const PanelPage = () => {
             <Button 
               label='Adicionar Despesa'
               variant='primary'
-              onClick={() => {}}
+              onClick={() => { router.push('finance') }}
               leftIcon={<Plus width={16} height={16} color='#FFFFFF' />}
               styles={{ 
                 height: '3.2rem', 

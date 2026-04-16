@@ -23,8 +23,10 @@ export const WrapperTitleButtons = styled.div`
   }
 `;
 
-export const WrapperTitleTasks = styled(WrapperTitleButtons)`
-  margin-bottom: 1.6rem;
+export const WrapperTitleSubtitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 `;
 
 export const WrapperButtons = styled.div`
@@ -38,15 +40,9 @@ export const WrapperButtons = styled.div`
   }
 `;
 
-export const WrapperTitleSubtitle = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-`;
-
 export const WrapperCards = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 39.4rem));
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 39.4rem));
   gap: 1.6rem;
   padding-bottom: 3.2rem;
   width: 100%;
@@ -55,25 +51,12 @@ export const WrapperCards = styled.div`
     padding-bottom: 1.6rem;
   }
 
-  .responsive-panel-card {
-    max-width: 39.4rem;
+  .responsive-finance-card {
     width: 100%;
-    justify-self: center;
-  }
-
-  .responsive-panel-tasks-card {
-    max-width: 39.4rem;
-    width: 100%;
-    justify-self: center;
   }
 
   @media (max-width: 852px) {
     grid-template-columns: 1fr;
-
-    .responsive-panel-card,
-    .responsive-panel-tasks-card {
-      max-width: 100%;
-    }
   }
 `;
 
@@ -81,7 +64,6 @@ export const WrapperSectionCard = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.6rem;
 `;
 
 export const WrapperCardTexts = styled.div`
@@ -118,10 +100,8 @@ export const IconCard = styled.div<{ color: 'green' | 'red' | 'orange' }>`
   }}
 `;
 
-export const WrapperCheckItems = styled.div`
-  display: flex;
-  flex-direction: column;
+export const WrapperTitleMonthlyExpenses = styled(WrapperTitleButtons)`
+  justify-content: flex-start;
+  margin-bottom: 1.6rem;
   gap: 0.8rem;
-  max-height: 8.6rem;
-  overflow-y: auto;
 `;
