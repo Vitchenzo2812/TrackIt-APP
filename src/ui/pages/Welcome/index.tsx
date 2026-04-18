@@ -49,6 +49,10 @@ const WelcomePage = () => {
           label='Entrar' 
           variant='outline-red'
           onClick={natigateToAuth} 
+          styles={{ 
+            height: '4.8rem',
+            padding: '1.6rem' 
+          }}
         />
       </S.Header>
 

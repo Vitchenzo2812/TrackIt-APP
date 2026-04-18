@@ -7,6 +7,7 @@ import Button from '@/ui/atoms/Button';
 import Card from '@/ui/atoms/Card';
 import * as S from './styled';
 import { useRouter } from 'next/router';
+import Icon from '@/ui/atoms/Icon';
 
 const PanelPage = () => {
   const router = useRouter();
@@ -83,9 +84,9 @@ const PanelPage = () => {
                 </Typography>
               </S.WrapperCardTexts>
 
-              <S.IconCard color='green'>
+              <Icon color='green'>
                 <CircleCheck color='#36BA98' />
-              </S.IconCard>
+              </Icon>
             </S.WrapperSectionCard>
 
             <ProgressBar value={40} showLabel />
@@ -115,9 +116,9 @@ const PanelPage = () => {
                 </Typography>
               </S.WrapperCardTexts>
 
-              <S.IconCard color='red'>
+              <Icon color='red'>
                 <DollarSign color='#E76F51' />
-              </S.IconCard>
+              </Icon>
             </S.WrapperSectionCard>
 
             <Typography
@@ -154,9 +155,9 @@ const PanelPage = () => {
                 </Typography>
               </S.WrapperCardTexts>
 
-              <S.IconCard color='red'>
+              <Icon color='red'>
                 <TrendingUp color='#F4A261' />
-              </S.IconCard>
+              </Icon>
             </S.WrapperSectionCard>
 
             <Typography
